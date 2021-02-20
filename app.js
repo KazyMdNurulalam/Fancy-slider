@@ -8,9 +8,6 @@ const sliderContainer = document.getElementById('sliders');
 let sliders = [];
 
 
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 // show images 
@@ -37,16 +34,6 @@ const getImages = (query) => {
 }
 let slideIndex = 0;
 
-// function toggle () {
-//   var element = document.getElementsByClassName("getImg");
-//   if (element.classList == "added"){
-//     element.classList.remove("added")
-//   }
-//   else {
-//     element.classList.add("added")
-//   }
-// }
-
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
@@ -59,9 +46,7 @@ const selectItem = (event, img) => {
   else if (item !== -1) {
     sliders.pop(img);
   }
-  // else {
-  //   alert('Hey, Already added !')
-  // }
+ 
 }
 var timer
 const createSlider = () => {
