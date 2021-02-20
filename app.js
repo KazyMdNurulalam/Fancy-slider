@@ -23,7 +23,7 @@ const showImages = (images) => {
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    div.innerHTML = ` <img class="getImg img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
   })
 
@@ -36,6 +36,17 @@ const getImages = (query) => {
     .catch(err => console.log(err))
 }
 let slideIndex = 0;
+
+// function toggle () {
+//   var element = document.getElementsByClassName("getImg");
+//   if (element.classList == "added"){
+//     element.classList.remove("added")
+//   }
+//   else {
+//     element.classList.add("added")
+//   }
+// }
+
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.add('added');
@@ -127,6 +138,18 @@ searchBtn.addEventListener('click', function () {
   search.value='';
 })
 
+// keyup part
+const search = document.getElementById("search");
+search.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    // event.preventDefault();
+    document.querySelector('.main').style.display = 'none';
+    clearInterval(timer);
+    getImages(search.value)
+    sliders.length = 0;
+    search.value = '';
+  }
+});
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
