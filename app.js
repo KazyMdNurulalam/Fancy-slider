@@ -84,8 +84,8 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value  || 1000;
-  if (duration < 0) {
-    alert("duration never be negative")
+  if (duration < 1000) {
+    duration = 1000;
   }
   else if(duration > 0) {
     sliders.forEach(slide => {
